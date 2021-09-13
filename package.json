@@ -1,0 +1,15 @@
+{
+  "name": "eventtrap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "eventtrap.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.17.1",
+    "typescript": "^4.4.3"
+  }
+}
