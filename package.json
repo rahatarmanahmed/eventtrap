@@ -5,6 +5,7 @@
   "main": "eventtrap.ts",
   "scripts": {
     "build": "tsc",
+    "example": "node example/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

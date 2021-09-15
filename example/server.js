@@ -1,11 +1,12 @@
 const express = require('express')
 const fs = require('fs');
+const path = require('path')
 const app = express()
 const port = 3000
 
-const EVENT_TRAP_JS = fs.readFileSync('eventtrap.js');
-const EXAMPLE_HEADER_JS = fs.readFileSync('exampleheader.js');
-const EXAMPLE_FOOTER_JS = fs.readFileSync('examplefooter.js');
+const EVENT_TRAP_JS = fs.readFileSync(path.join(__dirname, '../dist/eventtrap.js'));
+const EXAMPLE_HEADER_JS = fs.readFileSync(path.join(__dirname, 'exampleheader.js'));
+const EXAMPLE_FOOTER_JS = fs.readFileSync(path.join(__dirname, 'examplefooter.js'));
 
 app.get('/', async (req, res) => {
     res.set('Content-Type', 'text/html')
