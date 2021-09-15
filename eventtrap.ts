@@ -1,15 +1,14 @@
 const JSACTION_ATTR = 'jsaction'
 
-interface EventInfo {
+export interface EventInfo {
     event: Event;
     action: string;
     actionElement: Element;
 }
 
-type EventHandler = (eventInfo: EventInfo) => void;
+export type EventHandler = (eventInfo: EventInfo) => void;
 
-// TODO allow export once i have proper compilation?
-/*export*/ class EventTrap {
+export class EventTrap {
     private handler: EventHandler|null;
     private queue: EventInfo[] = [];
 
@@ -70,6 +69,3 @@ type EventHandler = (eventInfo: EventInfo) => void;
         return actionMap;
     }
 }
-
-
-

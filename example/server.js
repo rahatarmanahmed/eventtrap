@@ -4,15 +4,13 @@ const path = require('path')
 const app = express()
 const port = 3000
 
-const EVENT_TRAP_JS = fs.readFileSync(path.join(__dirname, '../dist/eventtrap.js'));
-const EXAMPLE_HEADER_JS = fs.readFileSync(path.join(__dirname, 'exampleheader.js'));
-const EXAMPLE_FOOTER_JS = fs.readFileSync(path.join(__dirname, 'examplefooter.js'));
+const HEADER_JS = fs.readFileSync(path.join(__dirname, 'dist/header.js'));
+const FOOTER_JS = fs.readFileSync(path.join(__dirname, 'dist/footer.js'));
 
 app.get('/', async (req, res) => {
     res.set('Content-Type', 'text/html')
     res.write(`<html><body>`);
-    res.write(`<script>${EVENT_TRAP_JS}</script>`);
-    res.write(`<script>${EXAMPLE_HEADER_JS}</script>`);
+    res.write(`<script>${HEADER_JS}</script>`);
     res.write(`<p>Loaded trap</p>`);
     res.write(`<button type="button" jsaction="click:showAlert">Click me while the page is loading</button>`);
     res.write(`<p>Stalling the rest of the HTML for 3 seconds...</p>`);
@@ -22,7 +20,7 @@ app.get('/', async (req, res) => {
     res.write(`<p>1 seconds left...</p>`);
     await sleep(1000);
     res.write(`<p>Loading the rest of the page, include the main JS of the page containing the event handler implementation...</p>`);
-    res.write(`<script>${EXAMPLE_FOOTER_JS}</script>`);
+    res.write(`<script>${FOOTER_JS}</script>`);
     res.write(`<p>Done.</p>`);
 
     res.write(`</body></html>`);

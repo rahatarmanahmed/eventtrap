@@ -1,3 +1,6 @@
+/* This file must be compiled into a separate bundle and inlined at the top of the page */
+import {EventTrap} from '../../eventtrap';
+
 // TODO: have a more canonical list of events
 window['__eventTrap__'] = new EventTrap(document.documentElement, [
     "auxclick",

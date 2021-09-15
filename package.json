@@ -4,13 +4,17 @@
   "description": "",
   "main": "eventtrap.ts",
   "scripts": {
-    "build": "tsc",
-    "example": "node example/server.js",
+    "typecheck": "tsc",
+    "build-header": "esbuild example/src/header.ts --bundle --outfile=example/dist/header.js",
+    "build-footer": "esbuild example/src/footer.ts --bundle --outfile=example/dist/footer.js",
+    "build": "npm run typecheck && npm run build-header && npm run build-footer",
+    "example": "npm run build && node example/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "UNLICENSED",
   "devDependencies": {
+    "esbuild": "^0.12.28",
     "express": "^4.17.1",
     "typescript": "^4.4.3"
   }
