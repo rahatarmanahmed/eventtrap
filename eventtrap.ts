@@ -1,3 +1,4 @@
+// TODO: write tests
 const JSACTION_ATTR = 'jsaction'
 
 export interface EventInfo {
@@ -13,6 +14,7 @@ export class EventTrap {
     private queue: EventInfo[] = [];
 
     constructor(private readonly container: Element, events: string[]) {
+        // TODO: support custom events
         for (const event of events) {
             this.installEventCapturer(event);
         }
@@ -43,6 +45,8 @@ export class EventTrap {
     }
 
     private handleEvent(eventInfo: EventInfo) {
+        // TODO: probably want to prevent default on <a> tags with actions
+        // TODO: make a clickonly event
         if (this.handler) this.handler(eventInfo);
         else this.queue.push(eventInfo);
     }

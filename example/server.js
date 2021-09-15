@@ -9,8 +9,10 @@ const FOOTER_JS = fs.readFileSync(path.join(__dirname, 'dist/footer.js'));
 
 app.get('/', async (req, res) => {
     res.set('Content-Type', 'text/html')
-    res.write(`<html><body>`);
+    res.write(`<html><head>`);
     res.write(`<script>${HEADER_JS}</script>`);
+    res.write(`</head>`);
+    res.write(`<body>`);
     res.write(`<p>Loaded trap</p>`);
     res.write(`<button type="button" jsaction="click:showAlert">Click me while the page is loading</button>`);
     res.write(`<p>Stalling the rest of the HTML for 3 seconds...</p>`);
