@@ -4,11 +4,12 @@
   "description": "",
   "main": "eventtrap.ts",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "UNLICENSED",
-  "dependencies": {
+  "devDependencies": {
     "express": "^4.17.1",
     "typescript": "^4.4.3"
   }
